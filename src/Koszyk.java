@@ -10,4 +10,12 @@ public class Koszyk {
     public ArrayList<Produkt> getProdukty() {
         return produkty;
     }
+    public Koszyk(Produkt ...produkty){
+    }
+    public void add(Produkt ...produkty){
+
+    }
+    public void del(Produkt ...produkty){
+
+    }
 }
