@@ -11,11 +11,18 @@ public class Koszyk {
         return produkty;
     }
     public Koszyk(Produkt ...produkty){
+        for (Produkt p:produkty){
+            this.produkty.add(p);
+        }
     }
     public void add(Produkt ...produkty){
-
+        for (Produkt p:produkty){
+            this.produkty.add(p);
+        }
     }
     public void del(Produkt ...produkty){
-
+        for (Produkt p:produkty){
+            this.produkty.remove(p);
+        }
     }
 }
