@@ -25,4 +25,7 @@ public class Koszyk {
             this.produkty.remove(p);
         }
     }
+    public float do_zaplaty(){
+        return 0;
+    }
 }

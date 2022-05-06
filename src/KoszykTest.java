@@ -46,4 +46,11 @@ public class KoszykTest {
         // Assert
         assertEquals("sut.getProdukty().size()", 1, sut.getProdukty().size());
     }
+    @Test
+    public void testDoZaplaty() {
+        // Arrange
+        Koszyk sut = new Koszyk(new Produkt(), new Produkt()); // sut = System Under Test
+        // Assert
+        assertEquals("sut.do_zaplaty()", 2., sut.do_zaplaty(), 0.001);
+    }
 }
