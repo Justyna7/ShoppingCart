@@ -5,23 +5,23 @@ import java.util.ArrayList;
 
 // dodawanie/ usuwanie można zrobić systemowo
 // napisać własne porównywanie
-public class Koszyk {
-    private ArrayList<Produkt> produkty = new ArrayList<Produkt>();
-    public ArrayList<Produkt> getProdukty() {
+public class Cart {
+    private ArrayList<Product> produkty = new ArrayList<Product>();
+    public ArrayList<Product> getProdukty() {
         return produkty;
     }
-    public Koszyk(Produkt ...produkty){
-        for (Produkt p:produkty){
+    public Cart(Product...produkty){
+        for (Product p:produkty){
             this.produkty.add(p);
         }
     }
-    public void add(Produkt ...produkty){
-        for (Produkt p:produkty){
+    public void add(Product...produkty){
+        for (Product p:produkty){
             this.produkty.add(p);
         }
     }
-    public void del(Produkt ...produkty){
-        for (Produkt p:produkty){
+    public void del(Product...produkty){
+        for (Product p:produkty){
             this.produkty.remove(p);
         }
     }
