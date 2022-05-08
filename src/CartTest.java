@@ -57,15 +57,19 @@ public class CartTest {
     public void testSortByPrizeAscending() {
         // Arrange
         Cart sut = new Cart(new Product("aaa", "p1", 12), new Product("aab", "p2", 3), new Product("aac", "p3", 13)); // sut = System Under Test
+        // Act
+        sut.sortByPrize(false);
         // Assert
-        assertEquals("sut.getProducts().get(0).getName()", "aab", sut.getProducts().get(0).getName());
+        assertEquals("sut.getProducts().get(0).getName()", "p2", sut.getProducts().get(0).getName());
     }
     @Test
     public void testSortByPrizeDescending() {
         // Arrange
         Cart sut = new Cart(new Product("aaa", "p1", 12), new Product("aab", "p2", 3), new Product("aac", "p3", 13)); // sut = System Under Test
+        // Act
+        sut.sortByPrize(true);
         // Assert
-        assertEquals("sut.getProducts().get(0).getName()", "aac", sut.getProducts().get(0).getName());
+        assertEquals("sut.getProducts().get(0).getName()", "p3", sut.getProducts().get(0).getName());
     }
 
 }

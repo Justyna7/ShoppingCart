@@ -37,6 +37,10 @@ public class Cart {
 
 
     public void sortByPrize(boolean ascending){
+        this.products.sort(new PrizeComparator());
+        if (ascending){
+            Collections.reverse(this.products);
+        }
     }
 
 }
