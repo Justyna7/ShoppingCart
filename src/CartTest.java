@@ -71,5 +71,23 @@ public class CartTest {
         // Assert
         assertEquals("sut.getProducts().get(0).getName()", "p3", sut.getProducts().get(0).getName());
     }
+    @Test
+    public void testSortByNameAscending() {
+        // Arrange
+        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 38), new Product("aac", "woda", 13)); // sut = System Under Test
+        // Act
+        sut.sortByName(false);
+        // Assert
+        assertEquals("sut.getProducts().get(0).getName()", "aligator", sut.getProducts().get(0).getName());
+    }
+    @Test
+    public void testSortByNameDescending() {
+        // Arrange
+        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 38), new Product("aac", "woda", 13)); // sut = System Under Test
+        // Act
+        sut.sortByName(true);
+        // Assert
+        assertEquals("sut.getProducts().get(0).getName()", "woda", sut.getProducts().get(0).getName());
+    }
 
 }

@@ -42,5 +42,8 @@ public class Cart {
             Collections.reverse(this.products);
         }
     }
+    public void sortByName(boolean ascending){
+
+    }
 
 }
