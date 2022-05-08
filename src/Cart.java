@@ -43,7 +43,10 @@ public class Cart {
         }
     }
     public void sortByName(boolean ascending){
-
+        this.products.sort(new NameComparator());
+        if (ascending){
+            Collections.reverse(this.products);
+        }
     }
 
 }
