@@ -53,5 +53,19 @@ public class CartTest {
         // Assert
         assertEquals("sut.payment()", 15, sut.payment(), 0.001);
     }
+    @Test
+    public void testSortByPrizeAscending() {
+        // Arrange
+        Cart sut = new Cart(new Product("aaa", "p1", 12), new Product("aab", "p2", 3), new Product("aac", "p3", 13)); // sut = System Under Test
+        // Assert
+        assertEquals("sut.getProducts().get(0).getName()", "aab", sut.getProducts().get(0).getName());
+    }
+    @Test
+    public void testSortByPrizeDescending() {
+        // Arrange
+        Cart sut = new Cart(new Product("aaa", "p1", 12), new Product("aab", "p2", 3), new Product("aac", "p3", 13)); // sut = System Under Test
+        // Assert
+        assertEquals("sut.getProducts().get(0).getName()", "aac", sut.getProducts().get(0).getName());
+    }
 
 }

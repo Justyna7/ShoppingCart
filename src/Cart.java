@@ -2,6 +2,8 @@
 
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 // dodawanie/ usuwanie można zrobić systemowo
 // napisać własne porównywanie
@@ -32,4 +34,9 @@ public class Cart {
         }
         return payment;
     }
+
+
+    public void sortByPrize(boolean ascending){
+    }
+
 }
