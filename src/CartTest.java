@@ -7,7 +7,7 @@ public class CartTest {
         // Arrange
         Cart sut = new Cart(); // sut = System Under Test
         // Assert
-        assertEquals("sut.getProdukty().size()", 0, sut.getProdukty().size());
+        assertEquals("sut.getProducts().size()", 0, sut.getProducts().size());
     }
 
     @Test
@@ -15,7 +15,7 @@ public class CartTest {
         // Arrange
         Cart sut = new Cart(new Product(), new Product()); // sut = System Under Test
         // Assert
-        assertEquals("sut.getProdukty().size()", 2, sut.getProdukty().size());
+        assertEquals("sut.getProducts().size()", 2, sut.getProducts().size());
     }
     @Test
     public void testAddOne() {
@@ -24,7 +24,7 @@ public class CartTest {
         // Act
         sut.add(new Product());
         // Assert
-        assertEquals("sut.getProdukty().size()", 2, sut.getProdukty().size());
+        assertEquals("sut.getProducts().size()", 2, sut.getProducts().size());
     }
     @Test
     public void testAddTwo() {
@@ -33,7 +33,7 @@ public class CartTest {
         // Act
         sut.add(new Product(), new Product());
         // Assert
-        assertEquals("sut.getProdukty().size()", 2, sut.getProdukty().size());
+        assertEquals("sut.getProducts().size()", 2, sut.getProducts().size());
     }
     @Test
     public void testDeleteOne() {
@@ -44,13 +44,14 @@ public class CartTest {
         // Act
         sut.del(a);
         // Assert
-        assertEquals("sut.getProdukty().size()", 1, sut.getProdukty().size());
+        assertEquals("sut.getProducts().size()", 1, sut.getProducts().size());
     }
     @Test
-    public void testDoZaplaty() {
+    public void testPayment() {
         // Arrange
-        Cart sut = new Cart(new Product(), new Product()); // sut = System Under Test
+        Cart sut = new Cart(new Product("aaa", "p1", 12), new Product("aab", "p2", 3)); // sut = System Under Test
         // Assert
-        assertEquals("sut.do_zaplaty()", 2., sut.do_zaplaty(), 0.001);
+        assertEquals("sut.payment()", 15, sut.payment(), 0.001);
     }
+
 }
