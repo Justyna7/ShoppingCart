@@ -35,7 +35,6 @@ public class Cart {
         return payment;
     }
 
-
     public void sortByPrize(boolean ascending){
         this.products.sort(new PrizeComparator());
         if (ascending){
@@ -47,6 +46,18 @@ public class Cart {
         if (ascending){
             Collections.reverse(this.products);
         }
+    }
+    public Product minPrize(){
+        return new Product();
+    }
+    public ArrayList<Product> minPrize(int n){
+        return new ArrayList<Product>();
+    }
+    public Product maxPrize(){
+        return new Product();
+    }
+    public ArrayList<Product> maxPrize(int n){
+        return new ArrayList<Product>();
     }
 
 }

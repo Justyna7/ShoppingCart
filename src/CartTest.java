@@ -89,5 +89,33 @@ public class CartTest {
         // Assert
         assertEquals("sut.getProducts().get(0).getName()", "woda", sut.getProducts().get(0).getName());
     }
+    @Test
+    public void testMinSinglePrize() {
+        // Arrange
+        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13)); // sut = System Under Test
+        // Assert
+        assertEquals("sut.minPrize().getPrize()", 3, sut.minPrize().getPrize(), 0.001);
+    }
+    @Test
+    public void testMinListPrize() {
+        // Arrange
+        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13)); // sut = System Under Test
+        // Assert
+        assertEquals("sut.minPrize(2).get(1).getPrize()", 12, sut.minPrize(2).get(1).getPrize(), 0.001);
+    }
+    @Test
+    public void testMaxSinglePrize() {
+        // Arrange
+        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13)); // sut = System Under Test
+        // Assert
+        assertEquals("sut.maxPrize().getPrize()", 13, sut.maxPrize().getPrize(), 0.001);
+    }
+    @Test
+    public void testMaxListPrize() {
+        // Arrange
+        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13)); // sut = System Under Test
+        // Assert
+        assertEquals("sut.maxPrize(2).get(1).getPrize()", 12, sut.maxPrize(2).get(1).getPrize(), .001);
+    }
 
 }
