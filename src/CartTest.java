@@ -58,7 +58,7 @@ public class CartTest {
         // Arrange
         Cart sut = new Cart(new Product("aaa", "p1", 12), new Product("aab", "p2", 3), new Product("aac", "p3", 13)); // sut = System Under Test
         // Act
-        sut.sortByPrize(false);
+        sut.sortByPrize(true);
         // Assert
         assertEquals("sut.getProducts().get(0).getName()", "p2", sut.getProducts().get(0).getName());
     }
@@ -67,7 +67,7 @@ public class CartTest {
         // Arrange
         Cart sut = new Cart(new Product("aaa", "p1", 12), new Product("aab", "p2", 3), new Product("aac", "p3", 13)); // sut = System Under Test
         // Act
-        sut.sortByPrize(true);
+        sut.sortByPrize(false);
         // Assert
         assertEquals("sut.getProducts().get(0).getName()", "p3", sut.getProducts().get(0).getName());
     }
@@ -76,7 +76,7 @@ public class CartTest {
         // Arrange
         Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 38), new Product("aac", "woda", 13)); // sut = System Under Test
         // Act
-        sut.sortByName(false);
+        sut.sortByName(true);
         // Assert
         assertEquals("sut.getProducts().get(0).getName()", "aligator", sut.getProducts().get(0).getName());
     }
@@ -85,7 +85,7 @@ public class CartTest {
         // Arrange
         Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 38), new Product("aac", "woda", 13)); // sut = System Under Test
         // Act
-        sut.sortByName(true);
+        sut.sortByName(false);
         // Assert
         assertEquals("sut.getProducts().get(0).getName()", "woda", sut.getProducts().get(0).getName());
     }

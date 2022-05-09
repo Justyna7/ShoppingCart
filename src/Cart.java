@@ -35,26 +35,29 @@ public class Cart {
         return payment;
     }
 
-    public void sortByPrize(boolean ascending){
+    public void sortByPrize(boolean ascending) {
         this.products.sort(new PrizeComparator());
-        if (ascending){
+        if (!ascending) {
             Collections.reverse(this.products);
         }
     }
+
     public void sortByName(boolean ascending){
         this.products.sort(new NameComparator());
-        if (ascending){
+        if (!ascending){
             Collections.reverse(this.products);
         }
     }
     public Product minPrize(){
-        return new Product();
+        this.sortByPrize(true);
+        return this.products.get(0);
     }
     public ArrayList<Product> minPrize(int n){
         return new ArrayList<Product>();
     }
     public Product maxPrize(){
-        return new Product();
+        this.sortByPrize(false);
+        return this.products.get(0);
     }
     public ArrayList<Product> maxPrize(int n){
         return new ArrayList<Product>();
