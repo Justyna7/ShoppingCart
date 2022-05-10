@@ -53,14 +53,24 @@ public class Cart {
         return this.products.get(0);
     }
     public ArrayList<Product> minPrize(int n){
-        return new ArrayList<Product>();
+        this.sortByPrize(true);
+        ArrayList<Product> x = new ArrayList<>();
+        for (int i = 0; i < n; i++){
+            x.add(this.products.get(i));
+        }
+        return x;
     }
     public Product maxPrize(){
         this.sortByPrize(false);
         return this.products.get(0);
     }
     public ArrayList<Product> maxPrize(int n){
-        return new ArrayList<Product>();
+        this.sortByPrize(false);
+        ArrayList<Product> x = new ArrayList<>();
+        for (int i = 0; i < n; i++){
+            x.add(this.products.get(i));
+        }
+        return x;
     }
 
 }
