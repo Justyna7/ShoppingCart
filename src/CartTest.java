@@ -1,4 +1,7 @@
 import org.junit.*; //
+
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class CartTest {
@@ -117,5 +120,33 @@ public class CartTest {
         // Assert
         assertEquals("sut.maxPrize(2).get(1).getPrize()", 12, sut.maxPrize(2).get(1).getPrize(), .001);
     }
+    @Test
+    public void testBargain1() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new Bargain(10,20));
+        Cart sut = new Cart(offers, new Product("aaa", "paczka", 10)); // sut = System Under Test
+        // Assert
+        assertEquals("sut.payment()", 8, sut.payment(), .001);
+    }
+    @Test public void testBargain2() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new Bargain(20,20));
+        Cart sut = new Cart(offers, new Product("aaa", "paczka", 10)); // sut = System Under Test
+        // Assert
+        assertEquals("sut.payment()", 10, sut.payment(), .001);
+    }
+    @Test public void testBargain3() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new Bargain(20,20));
+        Cart sut = new Cart(offers, new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20)); // sut = System Under Test
+        // Assert
+        assertEquals("sut.payment()", 24, sut.payment(), .001);
+    }
+
+
+
 
 }

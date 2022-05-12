@@ -12,6 +12,12 @@ public class Cart {
     public ArrayList<Product> getProducts() {
         return products;
     }
+    public ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+    public Cart(ArrayList<Special_offer> offers, Product...products){
+        for (Product p:products){
+            this.products.add(p);
+        }
+    }
     public Cart(Product...products){
         for (Product p:products){
             this.products.add(p);
