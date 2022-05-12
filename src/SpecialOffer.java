@@ -1,4 +1,6 @@
+import java.util.ArrayList;
+
 public interface SpecialOffer {
-    public boolean check_if_applies();
-    public void apply_offer();
+    boolean check_if_applies(ProductsList products);
+    void apply_offer(ProductsList products);
 }

@@ -16,14 +16,14 @@ public class CartTest {
     @Test
     public void testInitializeWithValue() {
         // Arrange
-        Cart sut = new Cart(new Product(), new Product()); // sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product(), new Product())); // sut = System Under Test
         // Assert
         assertEquals("sut.getProducts().size()", 2, sut.getProducts().size());
     }
     @Test
     public void testAddOne() {
         // Arrange
-        Cart sut = new Cart(new Product());// sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product()));// sut = System Under Test
         // Act
         sut.add(new Product());
         // Assert
@@ -43,7 +43,7 @@ public class CartTest {
         // Arrange
         Product a = new Product();
         Product b = new Product();
-        Cart sut = new Cart(a,b);// sut = System Under Test
+        Cart sut = new Cart(new ProductsList(a,b));// sut = System Under Test
         // Act
         sut.del(a);
         // Assert
@@ -52,14 +52,14 @@ public class CartTest {
     @Test
     public void testPayment() {
         // Arrange
-        Cart sut = new Cart(new Product("aaa", "p1", 12), new Product("aab", "p2", 3)); // sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product("aaa", "p1", 12), new Product("aab", "p2", 3)) ); // sut = System Under Test
         // Assert
         assertEquals("sut.payment()", 15, sut.payment(), 0.001);
     }
     @Test
     public void testSortByPrizeAscending() {
         // Arrange
-        Cart sut = new Cart(new Product("aaa", "p1", 12), new Product("aab", "p2", 3), new Product("aac", "p3", 13)); // sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product("aaa", "p1", 12), new Product("aab", "p2", 3), new Product("aac", "p3", 13)) ); // sut = System Under Test
         // Act
         sut.sortByPrize(true);
         // Assert
@@ -68,7 +68,7 @@ public class CartTest {
     @Test
     public void testSortByPrizeDescending() {
         // Arrange
-        Cart sut = new Cart(new Product("aaa", "p1", 12), new Product("aab", "p2", 3), new Product("aac", "p3", 13)); // sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product("aaa", "p1", 12), new Product("aab", "p2", 3), new Product("aac", "p3", 13))); // sut = System Under Test
         // Act
         sut.sortByPrize(false);
         // Assert
@@ -77,7 +77,7 @@ public class CartTest {
     @Test
     public void testSortByNameAscending() {
         // Arrange
-        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 38), new Product("aac", "woda", 13)); // sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 38), new Product("aac", "woda", 13))); // sut = System Under Test
         // Act
         sut.sortByName(true);
         // Assert
@@ -86,7 +86,7 @@ public class CartTest {
     @Test
     public void testSortByNameDescending() {
         // Arrange
-        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 38), new Product("aac", "woda", 13)); // sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 38), new Product("aac", "woda", 13))); // sut = System Under Test
         // Act
         sut.sortByName(false);
         // Assert
@@ -95,28 +95,28 @@ public class CartTest {
     @Test
     public void testMinSinglePrize() {
         // Arrange
-        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13)); // sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13))); // sut = System Under Test
         // Assert
         assertEquals("sut.minPrize().getPrize()", 3, sut.minPrize().getPrize(), 0.001);
     }
     @Test
     public void testMinListPrize() {
         // Arrange
-        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13)); // sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13))); // sut = System Under Test
         // Assert
         assertEquals("sut.minPrize(2).get(1).getPrize()", 12, sut.minPrize(2).get(1).getPrize(), 0.001);
     }
     @Test
     public void testMaxSinglePrize() {
         // Arrange
-        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13)); // sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13))); // sut = System Under Test
         // Assert
         assertEquals("sut.maxPrize().getPrize()", 13, sut.maxPrize().getPrize(), 0.001);
     }
     @Test
     public void testMaxListPrize() {
         // Arrange
-        Cart sut = new Cart(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13)); // sut = System Under Test
+        Cart sut = new Cart(new ProductsList(new Product("aaa", "paczka", 12), new Product("aab", "aligator", 3), new Product("aac", "woda", 13))); // sut = System Under Test
         // Assert
         assertEquals("sut.maxPrize(2).get(1).getPrize()", 12, sut.maxPrize(2).get(1).getPrize(), .001);
     }
@@ -125,7 +125,7 @@ public class CartTest {
         // Arrange
         ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
         offers.add(new Bargain(10,20));
-        Cart sut = new Cart(offers, new Product("aaa", "paczka", 10)); // sut = System Under Test
+        Cart sut = new Cart(offers, new ProductsList(new Product("aaa", "paczka", 10))); // sut = System Under Test
         // Assert
         assertEquals("sut.payment()", 8, sut.payment(), .001);
     }
@@ -133,7 +133,7 @@ public class CartTest {
         // Arrange
         ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
         offers.add(new Bargain(20,20));
-        Cart sut = new Cart(offers, new Product("aaa", "paczka", 10)); // sut = System Under Test
+        Cart sut = new Cart(offers, new ProductsList(new Product("aaa", "paczka", 10))); // sut = System Under Test
         // Assert
         assertEquals("sut.payment()", 10, sut.payment(), .001);
     }
@@ -141,7 +141,7 @@ public class CartTest {
         // Arrange
         ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
         offers.add(new Bargain(20,20));
-        Cart sut = new Cart(offers, new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20)); // sut = System Under Test
+        Cart sut = new Cart(offers,new ProductsList(new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20)) ); // sut = System Under Test
         // Assert
         assertEquals("sut.payment()", 24, sut.payment(), .001);
     }
