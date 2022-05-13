@@ -10,6 +10,7 @@ public class Bonus extends Special_offer{
     @Override
     public boolean check_if_applies(ProductsList products) {
         return products.payment() >= this.min;
+
     }
 
     @Override

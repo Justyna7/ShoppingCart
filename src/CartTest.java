@@ -201,7 +201,10 @@ public class CartTest {
                 new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20),
                 new Product("aac", "paczka3", 15 ),new Product("aad", "paczka4", 5 ))); // sut = System Under Test
         // Act
+        sut.payment();
         sut.sortByPrize(true);
+
+        System.out.println(sut.getProducts());
         // Assert
         assertEquals("sut.getProducts().get(0).getName()", "bonus", sut.getProducts().get(0).getName());
     }
@@ -213,7 +216,9 @@ public class CartTest {
                 new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20),
                 new Product("aac", "paczka3", 15 ),new Product("aad", "paczka4", 5 ))); // sut = System Under Test
         // Act
+        sut.payment();
         sut.sortByPrize(true);
+
         // Assert
         assertEquals("sut.getProducts().get(0).getName()", "paczka4", sut.getProducts().get(0).getName());
     }
