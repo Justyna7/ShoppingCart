@@ -57,7 +57,7 @@ public class ProductsList {
     public double payment(){
         double payment = 0;
         for (Product p:this.products){
-            payment = payment + p.getPrize();
+            payment = payment + p.getDiscountPrize();
         }
         return payment;
     }

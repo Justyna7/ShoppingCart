@@ -15,8 +15,6 @@ public class Bargain extends Special_offer {
     public boolean check_if_applies(ProductsList products) {
         return products.payment() >= this.min;
     }
-
     @Override
-    public void apply_offer(ProductsList products) {
-    }
+    public void apply_offer(ProductsList products) {}
 }

@@ -32,4 +32,8 @@ private double DiscountPrize;
     public double getDiscountPrize() {
         return DiscountPrize;
     }
+
+    public void setDiscountPrize(double discountPrize) {
+        DiscountPrize = discountPrize;
+    }
 }

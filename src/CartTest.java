@@ -145,6 +145,44 @@ public class CartTest {
         // Assert
         assertEquals("sut.payment()", 24, sut.payment(), .001);
     }
+    @Test public void testNforM1() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new NforM(3,2));
+        Cart sut = new Cart(offers,new ProductsList(new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20), new Product("aac", "paczka3", 15)) ); // sut = System Under Test
+        // Assert
+        assertEquals("sut.payment()", 35, sut.payment(), .001);
+    }
+
+    @Test public void testNforM2() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new NforM(3,2));
+        Cart sut = new Cart(offers,new ProductsList(
+                new Product("aaa", "p1", 10), new Product("aab", "p2", 20), new Product("aac", "p3", 15),
+                new Product("aab", "p2", 20), new Product("aab", "p2", 20), new Product("aac", "p3", 15)
+                ) ); // sut = System Under Test
+        // Assert
+        assertEquals("sut.payment()", 75, sut.payment(), .001);
+    }
+    @Test public void testNforM3() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new NforM(3,2));
+        Cart sut = new Cart(offers,new ProductsList(new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20)) ); // sut = System Under Test
+        // Assert
+        assertEquals("sut.payment()", 30, sut.payment(), .001);
+    }
+    @Test public void testNforM4() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new NforM(3,2));
+        Cart sut = new Cart(offers,new ProductsList(
+                new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20),
+                new Product("aac", "paczka3", 15 ),new Product("aad", "paczka4", 5 ))); // sut = System Under Test
+        // Assert
+        assertEquals("sut.payment()", 30, sut.payment(), .001);
+    }
 
 
 
