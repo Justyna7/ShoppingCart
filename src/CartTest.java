@@ -181,7 +181,7 @@ public class CartTest {
                 new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20),
                 new Product("aac", "paczka3", 15 ),new Product("aad", "paczka4", 5 ))); // sut = System Under Test
         // Assert
-        assertEquals("sut.payment()", 30, sut.payment(), .001);
+        assertEquals("sut.payment()", 45, sut.payment(), .001);
     }
 
 
