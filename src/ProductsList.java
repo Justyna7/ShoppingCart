@@ -9,12 +9,19 @@ public class ProductsList {
     public ArrayList<Product> getProducts() {
         return products;
     }
-    public ProductsList(Product...products){ this.products.addAll(Arrays.asList(products)); }
+    public ProductsList(Product...products){
+        this.products.addAll(Arrays.asList(products));
+        this.defaultSort();
+    }
 
-    public void add(Product...products){ Collections.addAll(this.products, products); }
+    public void add(Product...products){
+        Collections.addAll(this.products, products);
+        this.defaultSort();
+    }
 
     public void del(Product...products){
         for (Product p:products){ this.products.remove(p); }
+        this.defaultSort();
     }
 
     public void sortByPrize(boolean ascending) {
@@ -27,6 +34,9 @@ public class ProductsList {
         if (!ascending){ Collections.reverse(this.products); }
     }
 
+    public void defaultSort(){
+        this.products.sort(new DefaultComparator());
+    }
     public Product minPrize(){
         this.sortByPrize(true);
         return this.products.get(0);
