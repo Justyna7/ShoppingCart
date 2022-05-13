@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Objects;
 
 public class ProductsList {
     private ArrayList<Product> products = new ArrayList<Product>();
@@ -60,5 +61,15 @@ public class ProductsList {
             payment = payment + p.getDiscountPrize();
         }
         return payment;
+    }
+
+    public ArrayList<Product> filterByCode(String code){
+        ArrayList<Product> x = new ArrayList<>();
+        for (int i = 0; i <this.products.size() ; i++){
+            if (this.products.get(i).getCode().equals(code)) {
+                x.add(this.products.get(i));
+            }
+        }
+        return x;
     }
 }
