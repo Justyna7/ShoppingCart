@@ -253,6 +253,21 @@ public class CartTest {
         assertEquals("sut.getProducts().size()", 4, sut.getProducts().size());
     }
 
+    @Test public void testReaplyOffers() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new Bonus(30,new Product("xxx", "bonus", 0 )));
+        Cart sut = new Cart(offers,new ProductsList(
+                new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20),
+                new Product("aac", "paczka3", 15 ),new Product("aad", "paczka4", 5 ))); // sut = System Under Test
+        // Act
+        sut.payment();
+        sut.add(new Bonus(30,new Product("xxx", "bonus", 0 )));
+        sut.payment();
+
+        // Assert
+        assertEquals("sut.getProducts().size()", 6, sut.getProducts().size());
+    }
 
 
 }
