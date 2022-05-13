@@ -193,6 +193,30 @@ public class CartTest {
         // Assert
         assertEquals("sut.payment()", 46, sut.payment(), .001);
     }
+    @Test public void testBonus1() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new Bonus(30,new Product("xxx", "bonus", 0 )));
+        Cart sut = new Cart(offers,new ProductsList(
+                new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20),
+                new Product("aac", "paczka3", 15 ),new Product("aad", "paczka4", 5 ))); // sut = System Under Test
+        // Act
+        sut.sortByPrize(true);
+        // Assert
+        assertEquals("sut.getProducts().get(0).getName()", "bonus", sut.getProducts().get(0).getName());
+    }
+    @Test public void testBonus2() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new Bonus(300,new Product("xxx", "bonus", 0 )));
+        Cart sut = new Cart(offers,new ProductsList(
+                new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20),
+                new Product("aac", "paczka3", 15 ),new Product("aad", "paczka4", 5 ))); // sut = System Under Test
+        // Act
+        sut.sortByPrize(true);
+        // Assert
+        assertEquals("sut.getProducts().get(0).getName()", "paczka4", sut.getProducts().get(0).getName());
+    }
 
 
 
