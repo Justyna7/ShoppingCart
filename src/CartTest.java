@@ -226,12 +226,12 @@ public class CartTest {
     @Test public void testAddOffert() {
         // Arrange
         ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
-        offers.add(new Bonus(300,new Product("xxx", "bonus", 0 )));
+        offers.add(new Bonus(30,new Product("xxx", "bonus", 0 )));
         Cart sut = new Cart(offers,new ProductsList(
                 new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20),
                 new Product("aac", "paczka3", 15 ),new Product("aad", "paczka4", 5 ))); // sut = System Under Test
         // Act
-        sut.add(new Bonus(300,new Product("xxx", "bonus", 0 )));
+        sut.add(new Bonus(30,new Product("xxx", "bonus", 0 )));
         sut.payment();
 
         // Assert
@@ -240,7 +240,7 @@ public class CartTest {
     @Test public void testDeleteOffert() {
         // Arrange
         ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
-        Bonus b = new Bonus(300,new Product("xxx", "bonus", 0 ));
+        Bonus b = new Bonus(30,new Product("xxx", "bonus", 0 ));
         offers.add(b);
         Cart sut = new Cart(offers,new ProductsList(
                 new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20),
