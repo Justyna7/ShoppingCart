@@ -269,5 +269,15 @@ public class CartTest {
         assertEquals("sut.getProducts().size()", 6, sut.getProducts().size());
     }
 
+    @Test
+    public void testDefaultSort() {
+        // Arrange
+        Cart sut = new Cart(new ProductsList(
+                new Product("aaa", "paczka", 12), new Product("aab", "aligator", 38),
+                new Product("aac", "woda", 13), new Product("aad", "aloes", 13),
+                new Product("aae", "bakalie", 13))); // sut = System Under Test
+        // Assert
+        assertEquals("sut.getProducts().get(2).getName()", "bakalie", sut.getProducts().get(2).getName());
+    }
 
 }
