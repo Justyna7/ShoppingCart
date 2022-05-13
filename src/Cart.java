@@ -30,7 +30,6 @@ public class Cart {
     public ArrayList<Product> maxPrize(int n){ return this.products.maxPrize(n); }
 
     public double payment(){
-//        double payment = 0;
         double procent = 1;
         for (Special_offer offer:this.offers){
             if(offer.check_if_applies(this.products)){
@@ -41,8 +40,5 @@ public class Cart {
             }
         }
         return this.products.payment() * procent;
-//        for (Product p:this.products.getProducts()){
-//            payment = payment + p.getPrize();
-//        }
     }
 }

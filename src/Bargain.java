@@ -9,13 +9,11 @@ public class Bargain extends Special_offer {
         this.percent = percent;
     }
     @Override
-    public double getPercent() {
-        return percent * 0.01;
-    }
+    public double getPercent() { return percent * 0.01; }
 
     @Override
     public boolean check_if_applies(ProductsList products) {
-        return true;
+        return products.payment() >= this.min;
     }
 
     @Override
