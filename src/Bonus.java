@@ -9,11 +9,11 @@ public class Bonus extends Special_offer{
     }
     @Override
     public boolean check_if_applies(ProductsList products) {
-        return false;
+        return true;
     }
 
     @Override
     public void apply_offer(ProductsList products) {
-
+        products.add(product);
     }
 }
