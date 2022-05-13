@@ -29,12 +29,33 @@ public class Cart {
     public Product maxPrize(){ return this.products.maxPrize(); }
     public ArrayList<Product> maxPrize(int n){ return this.products.maxPrize(n); }
 
-    public void add(Special_offer...offers){ Collections.addAll(this.offers, offers); }
-    public void del(Special_offer...offers){ for (Special_offer o:offers){ this.offers.remove(o);} }
+    private void unapply_offerts(){
+        for (Product p:this.products.getProducts()){
+            double prize = p.getPrize();
+            p.setDiscountPrize(prize);
+        }
+        ArrayList<Product> arr = new ArrayList<>();
+        for (Product p:this.products.getProducts()){
+            if (p.getPrize()==0){
+                arr.add(p);
+            }
+        }
+        for (Product p:arr){
+            this.products.del(p);
+        }
+    }
+    public void add(Special_offer...offers){
+        unapply_offerts();
+        Collections.addAll(this.offers, offers);
+    }
+    public void del(Special_offer...offers){
+        unapply_offerts();
+        for (Special_offer o:offers){ this.offers.remove(o);}
+    }
 
     public double payment(){
+        unapply_offerts();
         double procent = 1;
-
         for (Special_offer offer:this.offers){
             if(offer.check_if_applies(this.products)){
                 offer.apply_offer(this.products);
