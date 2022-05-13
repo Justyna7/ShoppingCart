@@ -183,6 +183,16 @@ public class CartTest {
         // Assert
         assertEquals("sut.payment()", 45, sut.payment(), .001);
     }
+    @Test public void testCoupon1() {
+        // Arrange
+        ArrayList<Special_offer> offers = new ArrayList<Special_offer>();
+        offers.add(new Coupon(30,new Product("aab", "paczka2", 20 ),20));
+        Cart sut = new Cart(offers,new ProductsList(
+                new Product("aaa", "paczka", 10), new Product("aab", "paczka2", 20),
+                new Product("aac", "paczka3", 15 ),new Product("aad", "paczka4", 5 ))); // sut = System Under Test
+        // Assert
+        assertEquals("sut.payment()", 46, sut.payment(), .001);
+    }
 
 
 
