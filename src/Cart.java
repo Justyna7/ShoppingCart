@@ -29,6 +29,9 @@ public class Cart {
     public Product maxPrize(){ return this.products.maxPrize(); }
     public ArrayList<Product> maxPrize(int n){ return this.products.maxPrize(n); }
 
+    public void add(Special_offer...offers){}
+    public void del(Special_offer...offers){}
+
     public double payment(){
         double procent = 1;
         for (Special_offer offer:this.offers){
