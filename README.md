@@ -72,7 +72,7 @@ One of basic functionalities is sotware for shopping cart, which is able to take
 - if value of an order is higher than 200 PLN, client will recieve a company mug for free
 - single use coupon with 30% discount on chosen product
 and other special offers not known yet at this implementation stage.
-Special offers and disscounts may change while the program is running as in - new ones may be added and existing ones may be removed.
+Special offers and discounts may change while the program is running as in - new ones may be added and existing ones may be removed.
 
 Goods in the cart should be sorted by prize in descending order, and then by product name in alphabetical order.
 Sorting order should be able to change while the program is running.
@@ -83,7 +83,7 @@ which will allow to:
 2. Find n cheapest/the most expensive products in a given collection of products
 3. Sort a given collection of products by prize and by name
 4. Count the sum of prizes of all given products
-6. Apply special offers and disscounts described above to the given collection of products in the cart
+6. Apply special offers and discounts described above to the given collection of products in the cart
 
 Characteristics associated with class ``Product``:
 - code - String
@@ -99,7 +99,7 @@ In this exercise use an array of products as a collection on which you will oper
 Project should contain appropriate unit tests for implemented funcionalities.
 
 ### Note 2
-While implementing the cart and disscounts pay attention to command pattern [Command](https://www.oodesign.com/command-pattern.html).
+While implementing the cart and discounts pay attention to command pattern [Command](https://www.oodesign.com/command-pattern.html).
 
 ### Note 3
 While planning sorting mechanism pay attention to [Dependency Inversion Principle](https://www.oodesign.com/dependency-inversion-principle.html) and 
