@@ -77,7 +77,7 @@ Special offers and disscounts may change while the program is running as in - ne
 Goods in the cart should be sorted by prize in descending order, and then by product name in alphabetical order.
 Sorting order should be able to change while the program is running.
 
-Your task is to implement the logic operating on obcjects of type ``Product``,
+Your task is to implement the logic operating on objects of type ``Product``,
 which will allow to:
 1. Find the cheapest/the most expensive product in a given collection of products
 2. Find n cheapest/the most expensive products in a given collection of products
